@@ -1,12 +1,23 @@
 {
   "name": "openmusic-api-consumer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js",
+    "start": "cross-env NODE_ENV=production node src/index.js",
+    "lint": "eslint --max-warnings 2 --ext .js ./src",
+    "format": "prettier -w ./src/**/*",
+    "prepare": "husky install"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "@shopify/eslint-plugin": "^42.1.0",
+    "eslint": "^8.46.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.0"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1"
+  }
 }
