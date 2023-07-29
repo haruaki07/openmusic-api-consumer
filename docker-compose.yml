@@ -1,0 +1,45 @@
+version: "3.3"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    hostname: rabbitmq-dev
+    restart: unless-stopped
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq/mnesia/rabbit@rabbitmq-dev
+      - rabbitmq_log:/var/log/rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - openmusic
+
+  postgres:
+    image: postgres:alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: openmusic
+      POSTGRES_PASSWORD: openmusic
+      POSTGRES_DB: openmusicdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - openmusic
+
+  mailcrab:
+    container_name: mailcrab
+    image: marlonb/mailcrab:latest
+    ports:
+      - 1080:1080
+      - 1025:1025
+    networks:
+      - openmusic
+
+volumes:
+  postgres_data:
+  rabbitmq_data:
+  rabbitmq_log:
+
+networks:
+  openmusic:

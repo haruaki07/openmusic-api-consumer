@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@shopify/eslint-plugin": "^42.1.0",
+    "@types/nodemailer": "^6.4.9",
     "eslint": "^8.46.0",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.0",
@@ -17,7 +18,11 @@
     "prettier": "^3.0.0"
   },
   "dependencies": {
+    "amqp-connection-manager": "^4.1.14",
+    "amqplib": "^0.10.3",
     "cross-env": "^7.0.3",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "nodemailer": "^6.9.4",
+    "pg": "^8.11.1"
   }
 }
