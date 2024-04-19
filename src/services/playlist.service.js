@@ -10,7 +10,7 @@ class PlaylistService {
     const playlistResult = await this.#pool.query(
       `
 SELECT 
-  p.id, p.name, u.username 
+  p.id, p.name
 FROM 
   playlists p
 JOIN users u
